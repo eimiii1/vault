@@ -36,6 +36,7 @@ export default function Register() {
             setEmailAddress('')
             setMobileNumber('')
             setPassword('')
+            router.push('/profile')
         } catch (err) {
             alert(err.message)
             setError(err.message)
