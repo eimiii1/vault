@@ -30,7 +30,7 @@ export async function POST(request) {
             password: hashedPassword
         })
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {expiresIn: '1d'})
         const response = NextResponse.json(
             { success: true, userId: user._id },
             { status: 201 }
@@ -40,11 +40,11 @@ export async function POST(request) {
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
-        
+
         return response
     } catch (err) {
         return NextResponse.json(
-            { message: err.message },
+            { message: `Registration error: ${err.message}` },
             { status: 500 }
         )
     }
