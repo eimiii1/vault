@@ -30,7 +30,7 @@ export async function POST(request) {
             password: hashedPassword
         })
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {expiresIn: '1d'})
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
         const response = NextResponse.json(
             { success: true, userId: user._id },
             { status: 201 }
