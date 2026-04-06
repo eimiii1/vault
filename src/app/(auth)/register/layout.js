@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Create your account | Vault',
+    title: 'Create your account | Ledger',
     description: ''
 }
 

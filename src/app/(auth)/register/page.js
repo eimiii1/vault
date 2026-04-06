@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { AlertCircleIcon } from '@hugeicons/core-free-icons'
+import Link from 'next/link'
 
 export default function Register() {
     const [emailAddress, setEmailAddress] = useState('')
@@ -56,14 +57,11 @@ export default function Register() {
                     <HugeiconsIcon icon={AlertCircleIcon} />
                     <AlertTitle>Registration failed</AlertTitle>
                     <AlertDescription>
-                        {error.map((err, i) => (
                             <span
-                            key={i}
-                            className='flex flex-col'
+                                className='flex flex-col'
                             >
-                                • {err}
+                                • {error}
                             </span>
-                        ))}
                     </AlertDescription>
                 </Alert>
             ) : null}
@@ -118,7 +116,7 @@ export default function Register() {
                 >SIGN UP</Button>
             </div>
             <footer>
-                Already a member? <span className='text-[#5f4bd2] font-bold'>Login</span>
+                Already a member? <Link href='/login' className='text-[#5f4bd2] font-bold'>Login</Link>
             </footer>
         </div>
     )
